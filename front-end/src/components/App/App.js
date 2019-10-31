@@ -4,9 +4,12 @@
 
 /* Module imports */
 import React, { Component } from 'react';
+import { Input } from 'semantic-ui-react'
 
 /* Styles imports */
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+
 
 
 /* Component imports */
@@ -50,6 +53,15 @@ class App extends Component {
         <div className="container">
           <p class="text">{this.state.message}</p>
         </div> 
+
+        <div className="ui labeled input">
+  <div className="ui label label">http://</div>
+  <input type="text" placeholder="mysite.com" />
+</div>
+<div>.</div>
+<div>
+        <button className="ui button">Click Here</button>
+        </div>
 
       </div>
     );
