@@ -1,0 +1,32 @@
+body{
+    margin: 0px ;
+    padding:0px;
+}
+
+.logo{
+    float: left;
+}
+
+.container {
+    margin: 0px;
+
+    height: 90px;
+    
+    box-shadow: 8px 8px 12px #eaeaea;
+}
+    
+    
+
+    i.large.icon, i.large.icons {
+        line-height: 1;
+        vertical-align: middle;
+        font-size: 35px;
+        margin: 30px;
+        
+    }
+
+
+.bouton{
+    float: right;
+
+}
