@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-ro
 
 
 /* Styles imports */
-
 import { Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 
-/* Component imports */
+/* Styles imports */
+import './header.css';
+import { Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 
 /* App component */
 class Header extends Component {
@@ -45,24 +47,26 @@ class Header extends Component {
       },
       (error) => {
         this.setState({message: "Please, create an account or login."});
-      }
+    }
     )
   }
+  
 
   render() {
     return (
     <div className = "container">
 
+        <img className ="logo"src="../assets/logo.png" alt="logo"/>
 
         <div className="bouton ">
          
             <Icon className="mail outline" size='large'/> 
-              <Icon className="user outline" size='large'/> 
-              <button onClick={this._logout}><Icon className="log out" size='large'/></button>
+            <Icon className="user outline" size='large'/> 
+            <button onClick={this._logout}><Icon className="log out" size='large'/></button>
+
         </div>
     </div>
-    
-      
+   
     );
   }
 }

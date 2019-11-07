@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 
 
 /* Styles imports */
-
+import './login.css';
 import { Button, Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
-
 
 /* App component */
 class Login extends Component {
@@ -14,6 +13,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
         user : {
             email:'',
             password:'',
@@ -70,14 +70,15 @@ _inputLogin = (e) => {
   render() {
     return (
     <div>
+        <div className="bg">
+           <h3>{this.state.message}</h3>
+              <img class="photo" src="../assets/logo.png" alt="logo"/>
+              <div className="bg">
 
-
-          <div className="bg">
-            <h3>{this.state.message}</h3>
-        
                 <Form >
                   <Form.Field>
                     <label>Email </label>
+
                     <input placeholder='Email' onChange={this._inputEmail} />
                   </Form.Field>
                   <Form.Field>
@@ -85,6 +86,7 @@ _inputLogin = (e) => {
                     <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" />
                   </Form.Field>
                   <Button type='Submit' onClick={this._inputLogin}>Se connecter</Button>
+
                 </Form>
  
             </div>

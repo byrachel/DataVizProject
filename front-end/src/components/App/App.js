@@ -5,7 +5,6 @@
 /* Module imports */
 import React, { Component } from 'react';
 
-
 /* Styles imports */
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -15,6 +14,9 @@ import CreateAccount from '../CreateAccount/CreateAccount';
 import Login from '../Login/login';
 import Header from '../Header/header';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import Login from '../Login/login';
+import Header from '../Header/header';
 
 
 /* App component */
@@ -29,11 +31,10 @@ class App extends Component {
 
   render() {
     return (
+
       <Router>
         <div>
           <Header />
-
-
 
           <Switch>
             <Route path="/">
@@ -43,6 +44,8 @@ class App extends Component {
 
         </div>
       </Router>
+
+
     );
   }
 }
