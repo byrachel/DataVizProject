@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
-
-/* Styles imports */
-import { Icon } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css'
-
 /* Styles imports */
 import './header.css';
 import { Icon } from 'semantic-ui-react';

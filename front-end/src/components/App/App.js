@@ -15,10 +15,6 @@ import Login from '../Login/login';
 import Header from '../Header/header';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Login from '../Login/login';
-import Header from '../Header/header';
-
-
 /* App component */
 class App extends Component {
   
