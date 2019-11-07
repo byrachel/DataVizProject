@@ -11,24 +11,23 @@ var newUser = {
         var createNewUser = new User ({
 
             enterprise: userData.enterprise,
-            username: userData.username,
+            contactFirstname: userData.firstname,
+            contactLastname: userData.lastname,
             email: userData.email,
             password: userData.password,
             status: userData.status,
             endengagement: userData.endengagement,
-            contract: null,
             videocam: []
         }
         );
         createNewUser.save((error) => {
             if(error) {
-                res.status(500).json({message: "Oups ! "});
+                res.status(500).json({message: "Oups ! Une erreur s'est produite."});
                 return;
             }
-            res.json({message: "OK"});
+            res.json({message: "Le client est enregistré."});
         });
     },
-
 
 }
 

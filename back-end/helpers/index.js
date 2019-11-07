@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('./localStrategy');
-const User = require('../../models/Users');
+const User = require('../models/Users');
 
 // Fonctions par défaut de Passport
 
