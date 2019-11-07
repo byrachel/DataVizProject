@@ -13,6 +13,8 @@ import 'semantic-ui-css/semantic.min.css';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import Login from '../Login/login';
 import Header from '../Header/header';
+import Blocs from '../Blocs/Blocs';
+import Sidebar from '../Sidebar/Sidebar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 /* App component */
@@ -31,6 +33,21 @@ class App extends Component {
       <Router>
         <div>
           <Header />
+          <div className="container">
+
+          <div className="ui grid">
+            <div className="three wide column sidebar-container">
+            <div className="sidebar">
+              <Sidebar />
+            </div>
+            </div>
+            <div className="twelve wide column blocs-container">
+
+              <Blocs />
+
+            </div>
+            </div>
+          </div>
 
           <Switch>
             <Route path="/">

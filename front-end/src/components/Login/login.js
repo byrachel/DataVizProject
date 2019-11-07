@@ -69,29 +69,27 @@ _inputLogin = (e) => {
 
   render() {
     return (
-    <div>
+
         <div className="bg">
-           <h3>{this.state.message}</h3>
+           
               <img class="photo" src="../assets/logo.png" alt="logo"/>
-              <div className="bg">
 
-                <Form >
-                  <Form.Field>
+                <Form>
+                <h3>{this.state.message}</h3>
+                    <Form.Field>
                     <label>Email </label>
-
-                    <input placeholder='Email' onChange={this._inputEmail} />
-                  </Form.Field>
-                  <Form.Field>
+                    <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
+                    </Form.Field>
+                    <Form.Field>
                     <label>Mot de passe</label>
-                    <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" />
-                  </Form.Field>
-                  <Button type='Submit' onClick={this._inputLogin}>Se connecter</Button>
+                    <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
+                    </Form.Field>
+                  <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
 
                 </Form>
  
-            </div>
         </div>
-    </div>
+
       
     );
   }

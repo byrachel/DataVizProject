@@ -12,7 +12,11 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        logout: false
+        logout: false,
+        company: 'Mairie de Cannes',
+        selector: 'Dashboard',
+        firstname: 'Prénom',
+        lastname: 'NOM'
     }
   }
 
@@ -49,16 +53,33 @@ class Header extends Component {
 
   render() {
     return (
-    <div className = "container">
 
-        <img className ="logo"src="../assets/logo.png" alt="logo"/>
+      <div>
+        <div className = "header-container">
+          <img src="../assets/logo.png" id="logo" alt="Karroad" />
+          <nav>
+            <Icon className="mail outline large" /> 
+            <Icon className="user outline large" /> 
+            <button onClick={this._logout} className="menu-icon"><Icon className="log out large" /></button>
+          </nav>
+        </div>
 
-        <div className="bouton ">
-         
-            <Icon className="mail outline" size='large'/> 
-            <Icon className="user outline" size='large'/> 
-            <button onClick={this._logout}><Icon className="log out" size='large'/></button>
-
+        <div className = "container">
+          <div className="BreadRow">
+            <div className="inline">
+            <div className="rectangle"></div>
+            <div className="BreadPolice left">
+              <p className="company">{this.state.company}
+              <Icon name='right angle' />
+              {this.state.selector}</p>
+            </div>
+            </div>
+            <div className="inline">
+            <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
+            
+            <div className="rectangle"></div>
+            </div>
+          </div>
         </div>
     </div>
    
