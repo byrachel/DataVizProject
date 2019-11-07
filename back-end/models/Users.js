@@ -8,13 +8,13 @@ const bcrypt = require('bcryptjs');
 
 /* User Data */
 const UserSchema = new mongoose.Schema({
-    entreprise: String,
-    username: String,
+    enterprise: String,
+    contactFirstname: String,
+    contactLastname: String,
     email: { type: String, unique: false, required: false },
     password: String,
     status: String,
     endengagement: Number,
-    contract: String,
     videocam: Array
 });
 
@@ -37,5 +37,6 @@ UserSchema.pre('save', function(next) {
         next();
     }
 });
+
 
 module.exports = mongoose.model('Users', UserSchema);
