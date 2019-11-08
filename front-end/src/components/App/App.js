@@ -14,7 +14,6 @@ import CreateAccount from '../CreateAccount/CreateAccount';
 import Login from '../Login/login';
 import Header from '../Header/header';
 
-import Map from '../Map/map';
 import Blocs from '../Blocs/Blocs';
 import Sidebar from '../Sidebar/Sidebar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -51,7 +50,6 @@ class App extends Component {
             </div>
           </div>
 
-        <Map/>
 
           <Switch>
             <Route path="/">
