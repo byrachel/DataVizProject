@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 
-import { Grid, Segment, Icon, Menu } from 'semantic-ui-react';
+import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
 import './Blocs.css';
+import Maping from '../Map/Map';
+
+
+
+const renderLabel = (label) => ({
+    color: 'blue',
+    content: `Customized label - ${label.text}`,
+    icon: 'check',
+})
 
 class Blocs extends Component {
     constructor(props) {
@@ -9,6 +18,56 @@ class Blocs extends Component {
         this.state = {
             nbActif: '5',
             dateContrat: '31/11/2024',
+            choiceCamera: [
+                {
+                  key: 'Camera 1',
+                  text: 'Camera 1',
+                  value: 'Camera 1',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                  key: 'Elliot Fu',
+                  text: 'Elliot Fu',
+                  value: 'Elliot Fu',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                  key: 'Stevie Feliciano',
+                  text: 'Stevie Feliciano',
+                  value: 'Stevie Feliciano',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                  key: 'Christian',
+                  text: 'Christian',
+                  value: 'Christian',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                  key: 'Matt',
+                  text: 'Matt',
+                  value: 'Matt',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                  key: 'Justen Kitsune',
+                  text: 'Justen Kitsune',
+                  value: 'Justen Kitsune',
+                  image: { avatar: true, src: '../assets/logo.png' },
+                },
+                {
+                    key: 'Matt',
+                    text: 'Matt',
+                    value: 'Matt',
+                    image: { avatar: true, src: '../assets/logo.png' },
+                  },
+                  {
+                    key: 'Justen Kitsune',
+                    text: 'Justen Kitsune',
+                    value: 'Justen Kitsune',
+                    image: { avatar: true, src: '../assets/logo.png' },
+                  },
+              ]
         }
     }
 
@@ -38,12 +97,30 @@ class Blocs extends Component {
                             <p className="blocCenter"> date de fin de contrat.</p>
                         </Segment>
                     </div>
-                </div>  
+                    <div className="sixteen wide column">
+
+                        <Dropdown
+                            placeholder='Select Camera'
+                            fluid
+                            selection
+                            options={this.state.choiceCamera}
+                        />
+
+                    </div>
+                    <div className="sixteen wide column">
+
+                        <Segment>
+                            <Maping />
+                        </Segment>
+                    </div>
+
+                </div>
             </div>
 
-                        
+
         );
     }
 }
 
 export default Blocs;
+

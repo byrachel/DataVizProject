@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
+import { Breadcrumb } from 'semantic-ui-react';
+
 /* Styles imports */
 import './header.css';
 import { Icon } from 'semantic-ui-react';
@@ -13,10 +15,14 @@ class Header extends Component {
     super(props);
     this.state = {
         logout: false,
-        company: 'Mairie de Cannes',
-        selector: 'Dashboard',
+        //company: 'Mairie de Cannes',
+        //selector: 'Dashboard',
         firstname: 'Prénom',
-        lastname: 'NOM'
+        lastname: 'NOM',
+        sections: [
+          { key: "1", content: 'Mairie de Cannes', link: true },
+          { key: '2', content: 'Dashboard', link: true }
+        ]
     }
   }
 
@@ -53,7 +59,7 @@ class Header extends Component {
 
   render() {
     return (
-
+/* header + logo */
       <div>
         <div className = "header-container">
           <img src="../assets/logo.png" id="logo" alt="Karroad" />
@@ -63,6 +69,37 @@ class Header extends Component {
             <button onClick={this._logout} className="menu-icon"><Icon className="log out large" /></button>
           </nav>
         </div>
+
+
+       {/* BreadCrumb */}
+       <div className = "container">
+          <div className="BreadRow">
+            <div className="inline">
+            <div className="rectangle"></div>
+            <div className="BreadPolice left"></div>
+       <Breadcrumb icon='right angle' sections={this.state.sections} />
+       </div>
+            <div className="inline">
+            <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
+            
+            <div className="rectangle"></div>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+
+  
+   
+    );
+  }
+}
+
+export default Header;
+
+
+/*
 
         <div className = "container">
           <div className="BreadRow">
@@ -81,10 +118,5 @@ class Header extends Component {
             </div>
           </div>
         </div>
-    </div>
-   
-    );
-  }
-}
-
-export default Header;
+*/
+        
