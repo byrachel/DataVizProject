@@ -1,0 +1,36 @@
+.blocCenter {
+    text-align: center;
+}
+
+.MenuRow, .BreadRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.ui.vertical.text.menu .item {
+    margin: 0;
+}
+
+.dateColor {
+    color: #e28468;
+}
+
+.perifColor {
+    color: #3eb2e5;
+}
+
+.dateContrat, .nbActif {
+    font-size: 28px;
+}
+
+.sidebar-menu {
+    color: #656565;
+}
+
+i.huge.icon {
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 36px;
+    margin: 12px;
+}
+

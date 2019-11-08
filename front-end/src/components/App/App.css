@@ -1,0 +1,37 @@
+/*
+ * App style
+ */
+
+
+ @font-face {
+    font-family: "Muli";
+    src: url("/fonts/Muli-Bold.ttf");
+    
+}
+
+@font-face {
+    font-family: "OpenSans-Regular";
+    src: url("/fonts/OpenSans-Regular.ttf");
+}
+
+.title {
+    text-align: center;
+}
+
+.container {
+    max-width: 1195px;
+    margin: 0 auto;
+
+}
+
+.sidebar {
+    max-width: 300px;
+}
+
+.blocs-container {
+    margin: 25px auto;
+}
+
+.sidebar-container {
+    margin-top: 20px;
+}

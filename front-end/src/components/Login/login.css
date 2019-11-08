@@ -2,37 +2,7 @@ body{
 margin: 0px 0px 0px 0px;
 padding: 0px;
 text-align: center;
-
 }
-
-.ui.form .field > label {
-
-    display: block;
-    margin: 0 0 .28571429rem 0;
-    color: #FFF;
-    font-size: 25px;
-    font-weight: 700;
-    
-  
-}
-
-
-.ui.button{
-    font-size: 20px;
-    background-color: rgba(58, 58, 204, 0.972);
-    color: #FFF;
-}
-
-
-.ui.form {
-    position: relative;
-    max-width: 100%;
-    margin: 0px 550px 0px 550px;
-    padding: 191px;
-    
-
-}
-
 
 .bg {
     background-image: url("https://cdn.lelynx.fr/wp-content/uploads/2017/09/trafic-routier-voitures-soleil.jpg");
@@ -43,19 +13,12 @@ text-align: center;
     height:  443px;
     }
 
-    .ui.form ::placeholder {
-        color: 
-        black;
-    }
+.login-input {
+    max-width: 500px;
+    border-radius: 0;
+}
 
+.submit-button {
+    border-radius: 0;
 
-
-    .ui.button:hover {
-        background-color: 
-        rgb(40, 40, 207);
-    background-image: none;
-    box-shadow: 0 0 0 1px
-    transparent inset,0 0 0 0
-    rgba(58, 58, 204, 0.972) inset;
-    color: #FFF;
-    }
+}
