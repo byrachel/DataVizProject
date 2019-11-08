@@ -10,7 +10,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 
 /* Component imports */
-import CreateAccount from '../CreateAccount/CreateAccount';
+import BarChart from '../Crossfilter/BarChart';
 import Login from '../Login/login';
 import Header from '../Header/header';
 
@@ -18,6 +18,8 @@ import Map from '../Map/map';
 import Blocs from '../Blocs/Blocs';
 import Sidebar from '../Sidebar/Sidebar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+
 
 /* App component */
 class App extends Component {
@@ -49,9 +51,14 @@ class App extends Component {
 
             </div>
             </div>
-          </div>
 
-        <Map/>
+
+          </div>
+            <div>
+              <BarChart />
+            </div>
+
+  
 
           <Switch>
             <Route path="/">
