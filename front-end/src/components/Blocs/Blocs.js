@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
 import './Blocs.css';
-import Maping from '../Map/Map';
+import Maping from '../Map/map';
 
 
 

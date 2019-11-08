@@ -53,6 +53,7 @@ class App extends Component {
 
 
           </div>
+
             <div>
               <BarChart />
             </div>
