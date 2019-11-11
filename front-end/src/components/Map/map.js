@@ -9,8 +9,8 @@ import './map.css';
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('./pin.png'),
-  iconUrl: require('./pin.png'),
+  iconRetinaUrl: require('./geopin.png'),
+  iconUrl: require('./geopin.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 

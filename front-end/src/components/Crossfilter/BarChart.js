@@ -3,6 +3,8 @@ import * as d3 from 'd3';
 import dataCsv from './data.csv';
 import "./BarChart.css";
 
+import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
+
 class BarChart extends React.Component {
     constructor() {
         super();
@@ -26,7 +28,7 @@ class BarChart extends React.Component {
     }
 
     draw = () => {       
-        const margin = {top: 20, right: 20, bottom: 90, left: 120};
+        const margin = {top: 50, right: 10, bottom: 100, left: 10};
         const width = 800 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
@@ -54,7 +56,6 @@ class BarChart extends React.Component {
 d3.csv(dataCsv).then((data) => {
     data.forEach((d) => {
         d.count = +d.count;    // Conversion des caractères en nombres
-        d.month = +d.month;
     }); 
 
     var newData = [];
@@ -116,8 +117,8 @@ d3.csv(dataCsv).then((data) => {
                     .duration(200)      
                     .style("opacity", 1);
                 div.html("Nombre de véhicules : " + d.count)
-                    .style("left", (d3.event.pageX + 10) + "px")     
-                    .style("top", (d3.event.pageY - 50) + "px");
+                    .style("right", (d3.event.pageX) + "px")     
+                    .style("top", (d3.event.pageY) + "px");
             })
             .on("mouseout", function(d) {
                 div.transition()
@@ -132,17 +133,37 @@ d3.csv(dataCsv).then((data) => {
 
         return (
 
-            <div>
-                <svg id="barchart"></svg>
-                <div id="tooltip"></div>
 
-                <select onChange={this._changeState}>
-                    <option value="all">Choisir</option>
-                    <option value="cars">Cars</option>
-                    <option value="trucks">Trucks</option>
-                </select>
-                {this.state.selected}
+            <div>
+                 <Segment raised>
+
+                 <div className="inline">
+
+                    <h3>Filtres :</h3>
+
+                    <select className="ui dropdown" onChange={this._changeState}>
+                        <option value="all">Tous les véhicules</option>
+                        <option value="cars">Voitures</option>
+                        <option value="trucks">Camions</option>
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <svg id="barchart">
+                        <div id="tooltip"></div>
+                    </svg>
+
+                
+                </div>
+
+                 
+                </Segment>
+
             </div>
+
+
             
         );
     }

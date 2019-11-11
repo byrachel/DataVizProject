@@ -16,7 +16,7 @@ class Blocs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nbActif: '5',
+            nbActif: '15',
             dateContrat: '31/11/2024',
             choiceCamera: [
                 {
@@ -80,36 +80,52 @@ class Blocs extends Component {
             <div>
                 <div className="ui grid">
                     <div className="eight wide column">
-                        <Segment className="blue">
-                            <div className="perifColor">
-                                <Icon name='sync alternate' size='huge' />
-                                <p className="blocCenter nbActif"> {this.state.nbActif} </p>
+                        <Segment raised className="blue">
+                            <div className="inline perifColor">
+                                <div className="ui grid">
+                                    <div className="four wide column">
+                                        <Icon name='video' size='huge' />
+                                    </div>
+                                    <div className="twelve wide column">
+                                        <p className="nbActif"> {this.state.nbActif}</p>
+                                        <p className="blocText">Périphériques actifs</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="blocCenter"> Périphériques actifs </p>
                         </Segment>
                     </div>
                     <div className="eight wide column">
-                        <Segment className="orange">
-                            <div className="dateColor">
-                                <Icon name='attention' size='huge' />
-                                <p className="blocCenter dateContrat"> {this.state.dateContrat} </p>
+                        <Segment raised className="orange">
+                            <div className="dateColor inline">
+                                <div className="ui grid">
+                                    <div className="four wide column">
+                                        <Icon name='attention' size='huge' />
+                                    </div>
+                                    <div className="twelve wide column">
+                                        <p className="dateContrat"> {this.state.dateContrat} </p>
+                                        <p className="blocText"> date de fin de contrat.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="blocCenter"> date de fin de contrat.</p>
                         </Segment>
                     </div>
                     <div className="sixteen wide column">
-
+                        <h2>Séléctionnez un périphérique:</h2>
+                        
+                        
                         <Dropdown
-                            placeholder='Select Camera'
+
+                            placeholder='Vos périphériques :'
                             fluid
                             selection
                             options={this.state.choiceCamera}
                         />
 
+                    
                     </div>
                     <div className="sixteen wide column">
 
-                        <Segment>
+                        <Segment raised>
                             <Maping />
                         </Segment>
                     </div>

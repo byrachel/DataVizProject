@@ -15,14 +15,7 @@ class Header extends Component {
     super(props);
     this.state = {
         logout: false,
-        //company: 'Mairie de Cannes',
-        //selector: 'Dashboard',
-        firstname: 'Prénom',
-        lastname: 'NOM',
-        sections: [
-          { key: "1", content: 'Mairie de Cannes', link: true },
-          { key: '2', content: 'Dashboard', link: true }
-        ]
+
     }
   }
 
@@ -59,7 +52,7 @@ class Header extends Component {
 
   render() {
     return (
-/* header + logo */
+
       <div>
         <div className = "header-container">
           <img src="../assets/logo.png" id="logo" alt="Karroad" />
@@ -70,25 +63,7 @@ class Header extends Component {
           </nav>
         </div>
 
-
-       {/* BreadCrumb */}
-       <div className = "container">
-          <div className="BreadRow">
-            <div className="inline">
-            <div className="rectangle"></div>
-            <div className="BreadPolice left"></div>
-       <Breadcrumb icon='right angle' sections={this.state.sections} />
-       </div>
-            <div className="inline">
-            <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
-            
-            <div className="rectangle"></div>
-            </div>
-          </div>
-          </div>
-
-
-        </div>
+      </div>
 
   
    
@@ -99,24 +74,5 @@ class Header extends Component {
 export default Header;
 
 
-/*
 
-        <div className = "container">
-          <div className="BreadRow">
-            <div className="inline">
-            <div className="rectangle"></div>
-            <div className="BreadPolice left">
-              <p className="company">{this.state.company}
-              <Icon name='right angle' />
-              {this.state.selector}</p>
-            </div>
-            </div>
-            <div className="inline">
-            <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
-            
-            <div className="rectangle"></div>
-            </div>
-          </div>
-        </div>
-*/
         

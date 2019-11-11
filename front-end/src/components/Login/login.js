@@ -70,25 +70,23 @@ _inputLogin = (e) => {
   render() {
     return (
 
+
         <div className="bg">
-           
-              <img class="photo" src="../assets/logo.png" alt="logo"/>
-
-                <Form>
-                <h3>{this.state.message}</h3>
-                    <Form.Field>
-                    <label>Email </label>
-                    <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
-                    </Form.Field>
-                    <Form.Field>
-                    <label>Mot de passe</label>
-                    <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
-                    </Form.Field>
-                  <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
-
-                </Form>
+          <Form className="login-space">
+            <div className="login-opacity">
+              <h3 className="white">{this.state.message}</h3>
+              <h2 className="login-title">Accédez à votre dashboard privé :</h2>
+              <Form.Field>
+              <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
+              </Form.Field>
+              <Form.Field>
+              <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
+              </Form.Field>
+              <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
+            </div>
+          </Form>
  
-        </div>
+      </div>
 
       
     );
