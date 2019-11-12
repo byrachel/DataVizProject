@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     email: { type: String, unique: true, required: false },
     password: String,
     status: String,
-    endengagement: Number,
+    endengagement: String,
     videocam: Array
 });
 

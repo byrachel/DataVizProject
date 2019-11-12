@@ -1,77 +1,66 @@
 import React, { Component } from 'react';
 
-import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
+import { Segment, Icon, Dropdown } from 'semantic-ui-react';
 import './Blocs.css';
 import Maping from '../Map/map';
 
-
-
-const renderLabel = (label) => ({
-    color: 'blue',
-    content: `Customized label - ${label.text}`,
-    icon: 'check',
-})
 
 class Blocs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nbActif: '15',
-            dateContrat: '31/11/2024',
-            choiceCamera: [
-                {
-                  key: 'Camera 1',
-                  text: 'Camera 1',
-                  value: 'Camera 1',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                  key: 'Elliot Fu',
-                  text: 'Elliot Fu',
-                  value: 'Elliot Fu',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                  key: 'Stevie Feliciano',
-                  text: 'Stevie Feliciano',
-                  value: 'Stevie Feliciano',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                  key: 'Christian',
-                  text: 'Christian',
-                  value: 'Christian',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                  key: 'Matt',
-                  text: 'Matt',
-                  value: 'Matt',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                  key: 'Justen Kitsune',
-                  text: 'Justen Kitsune',
-                  value: 'Justen Kitsune',
-                  image: { avatar: true, src: '../assets/logo.png' },
-                },
-                {
-                    key: 'Matt',
-                    text: 'Matt',
-                    value: 'Matt',
-                    image: { avatar: true, src: '../assets/logo.png' },
-                  },
-                  {
-                    key: 'Justen Kitsune',
-                    text: 'Justen Kitsune',
-                    value: 'Justen Kitsune',
-                    image: { avatar: true, src: '../assets/logo.png' },
-                  },
-              ]
+            videocam: [],
+            endengagement: '',
+            selectedVideocam: ''
         }
     }
 
+    componentDidMount() {
+      
 
+        var options = {
+          method: 'GET',
+          headers: {
+            "X-Requested-With": "XmlHttpRequest",
+            "Content-Type": "application/json"
+          },
+          credentials: "include"
+        }
+        
+        fetch('http://localhost:8080/users/user', options)
+        .then((res) => (res.json()))
+        .then(
+          (result) => {
+            console.log(result);
+            this.setState({
+    
+            endengagement: result.endengagement,
+            nbVideocam: result.videocam.length,
+            videocam: result.videocam
+    
+            });
+          },
+          (error) => {
+            this.setState({message: "Vous n'avez pas de périphérique actif."});
+          }
+        )
+      }
+
+      _displayVideocam = () => {
+
+        var videocam = this.state.videocam;
+        
+        var peripheriques = videocam.map((device) => {
+          return(
+            
+            <option value={device.name}>{device.name}</option>
+            
+          )
+        });
+        return (
+            <div><select>{peripheriques}</select></div>
+          );
+    }
 
     render() {
 
@@ -87,7 +76,7 @@ class Blocs extends Component {
                                         <Icon name='video' size='huge' />
                                     </div>
                                     <div className="twelve wide column">
-                                        <p className="nbActif"> {this.state.nbActif}</p>
+                                        <p className="nbActif"> {this.state.nbVideocam}</p>
                                         <p className="blocText">Périphériques actifs</p>
                                     </div>
                                 </div>
@@ -102,7 +91,7 @@ class Blocs extends Component {
                                         <Icon name='attention' size='huge' />
                                     </div>
                                     <div className="twelve wide column">
-                                        <p className="dateContrat"> {this.state.dateContrat} </p>
+                                        <p className="dateContrat"> {this.state.endengagement} </p>
                                         <p className="blocText"> date de fin de contrat.</p>
                                     </div>
                                 </div>
@@ -111,16 +100,8 @@ class Blocs extends Component {
                     </div>
                     <div className="sixteen wide column">
                         <h2>Séléctionnez un périphérique:</h2>
-                        
-                        
-                        <Dropdown
-
-                            placeholder='Vos périphériques :'
-                            fluid
-                            selection
-                            options={this.state.choiceCamera}
-                        />
-
+                        <p>{this._displayVideocam()}</p>
+                       
                     
                     </div>
                     <div className="sixteen wide column">
