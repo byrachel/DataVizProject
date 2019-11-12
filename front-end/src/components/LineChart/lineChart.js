@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import dataCsv from './data.csv'
+import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
 
 class LineChart extends React.Component {
     constructor() {
@@ -19,7 +20,7 @@ class LineChart extends React.Component {
     }
 
     draw = () => {        
-        const margin = {top: 20, right: 20, bottom: 90, left: 120};
+        const margin = {top: 50, right: 10, bottom: 100, left: 40};
         const width = 800 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
@@ -41,8 +42,8 @@ class LineChart extends React.Component {
             .attr("fill", "lightblue")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        const div = d3.select("#tooltip")
-            .attr("class", "tooltip")         
+        const div = d3.select("#tool")
+            .attr("class", "tool")         
             .style("opacity", 0);
 
             // On demande à D3JS de charger notre fichier
@@ -101,8 +102,11 @@ d3.csv(dataCsv).then((data) => {
         return (
 
             <div>
-                <svg id="linechart"></svg>
-                <div id="tooltip"></div>
+                <Segment raised>
+                    <svg id="linechart">
+                    <div id="tool"></div>
+                    </svg>
+                </Segment>
             </div>
             
         );

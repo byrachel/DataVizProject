@@ -15,7 +15,6 @@ import Header from '../Header/header';
 import Dashboard from '../Dashboard/Dashboard';
 import DeviceDashboard from '../Dashboard/DeviceDashboard';
 import CreateAccount from '../CreateAccount/CreateAccount';
-import LineChart from '../LineChart/lineChart';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -38,8 +37,6 @@ class App extends Component {
 
             <Dashboard />
 
-
-
           <Switch>
             <Route path="/Dashboard/Dashboard">
               <Dashboard />
@@ -52,8 +49,6 @@ class App extends Component {
             </Route>
             <Route path="/Dashboard/DeviceDashboard">
               <DeviceDashboard />
-            </Route>
-            <Route path="/LineChart/lineChart">   
             </Route>
 
           </Switch>

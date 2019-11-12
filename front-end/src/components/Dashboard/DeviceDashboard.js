@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import BarChart from '../Crossfilter/BarChart';
+import LineChart from '../LineChart/lineChart';
 import Sidebar from '../Sidebar/DeviceSidebar';
 
 
@@ -12,29 +13,27 @@ class DeviceDashboard extends Component {
         }
     }
 
-
-
     render() {
 
         return (
 
-            <div>
-                
-
-                <div className="ui grid">
+          <div>
+            
+            <div className="ui grid">
               <div className="three wide column sidebar-container">
                 <div className="sidebar">
                   <Sidebar />
                 </div>
               </div>
               <div className="twelve wide column blocs-container">
-              <BarChart />
-
+                <BarChart />
+              </div>
+              <div className="twelve wide column blocs-container">
+                <LineChart />
               </div>
             </div>
 
-
-            </div>
+          </div>
 
 
         );

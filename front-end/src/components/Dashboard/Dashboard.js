@@ -7,11 +7,12 @@ import React, { Component } from 'react';
 
 /* Styles imports */
 import 'semantic-ui-css/semantic.min.css';
-import { Breadcrumb } from 'semantic-ui-react';
+
 
 /* Component imports */
 import Blocs from '../Blocs/Blocs';
 import Sidebar from '../Sidebar/Sidebar';
+import BreadCrumb from '../Dashboard/BreadCrumb';
 
 
 /* App component */
@@ -20,10 +21,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        //company: 'Mairie de Cannes',
-        //selector: 'Dashboard',
-        firstname: 'Prénom',
-        lastname: 'NOM',
+  
         sections: [
           { key: "1", content: 'Mairie de Cannes', link: true },
           { key: '2', content: 'Dashboard', link: true }
@@ -31,15 +29,14 @@ class Dashboard extends Component {
     }
   }
 
+ 
+
   render() {
     return (
 
-
-
-
           <div>
-
-            {/* BreadCrumb */}
+            <BreadCrumb />
+            {/* BreadCrumb 
    
             <div className="BreadRow">
                 <div className="inline">
@@ -48,10 +45,10 @@ class Dashboard extends Component {
                     <Breadcrumb icon='right angle' sections={this.state.sections} />
                     </div>
                     <div className="inline">
-                    <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
+                    <p className="hello">Bonjour {this.state.user.contactFirstname} {this.state.lastname} </p>
                     <div className="rectangle"></div>
                 </div>
-            </div>
+            </div>*/}
 
             {/* Blocs */}
             <div className="ui grid">
@@ -79,25 +76,3 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
-
-
-/*
-
-        <div className = "container">
-          <div className="BreadRow">
-            <div className="inline">
-            <div className="rectangle"></div>
-            <div className="BreadPolice left">
-              <p className="company">{this.state.company}
-              <Icon name='right angle' />
-              {this.state.selector}</p>
-            </div>
-            </div>
-            <div className="inline">
-            <p className="hello">Bonjour {this.state.firstname} {this.state.lastname} </p>
-            
-            <div className="rectangle"></div>
-            </div>
-          </div>
-        </div>
-*/

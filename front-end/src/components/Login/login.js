@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 /* Styles imports */
 import './login.css';
 import { Button, Form } from 'semantic-ui-react'
@@ -49,11 +47,8 @@ _inputLogin = (e) => {
         "X-Requested-With": "XmlHttpRequest",
         "Content-Type": "application/json"
       },
-      credentials: "include",
       body: JSON.stringify(data)
     }
-
-    
 
     fetch("http://localhost:8080/users/login", options)
     .then((res) => (res.json()))
@@ -70,7 +65,6 @@ _inputLogin = (e) => {
   render() {
     return (
 
-
         <div className="bg">
           <Form className="login-space">
             <div className="login-opacity">
@@ -85,7 +79,6 @@ _inputLogin = (e) => {
               <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
             </div>
           </Form>
- 
       </div>
 
       

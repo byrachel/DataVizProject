@@ -5,7 +5,6 @@
 /* Module imports */
 import React, { Component } from 'react';
 
-
 /* Styles imports */
 import 'semantic-ui-css/semantic.min.css';
 
@@ -85,6 +84,7 @@ class CreateAccount extends Component {
                 </button>
                 
             </form>
+
       </div>
     );
   }

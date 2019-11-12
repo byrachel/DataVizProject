@@ -7,7 +7,11 @@ var Users = require ('../models/Users')
 var myAccount = {
 
     displayMyAccount: (req, res) => {
+
+        console.log(req.user);
+
         if(req.user) {
+
             res.json({
                 enterprise: req.user.enterprise,
                 contactFirstname: req.user.firstname,
@@ -20,6 +24,7 @@ var myAccount = {
         }
         else {
             res.status(401).end();
+            
         }
     }
 }
