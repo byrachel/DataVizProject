@@ -4,13 +4,17 @@ import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
 import './Blocs.css';
 import Maping from '../Map/Map';
 
-
+/* c'est quoi, qui a mis ca lol ???? 
 
 const renderLabel = (label) => ({
     color: 'blue',
     content: `Customized label - ${label.text}`,
     icon: 'check',
 })
+
+
+*/ 
+
 
 class Blocs extends Component {
     constructor(props) {
@@ -70,6 +74,29 @@ class Blocs extends Component {
               ]
         }
     }
+
+
+    componentDidMount() {
+
+        var options = {
+            method: "GET",
+          headers: {
+            "X-Requested-With": "XMLHttpRequest"
+          }
+        }
+    
+        fetch("http://localhost:8080/select", options)
+          .then(res => (res.json()))
+          .then(
+            (result) => {
+              this.setState({ message: result.message });
+            },
+            (error) => {
+              console.log(error);
+            }
+          )
+      }
+    
 
 
 
