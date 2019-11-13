@@ -28,7 +28,7 @@ class BarChart extends React.Component {
     }
 
     draw = () => {       
-        const margin = {top: 50, right: 10, bottom: 100, left: 40};
+        const margin = {top: 50, right: 0, bottom: 100, left: 40};
         const width = 800 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 

@@ -7,7 +7,12 @@ import React, { Component } from 'react';
 
 /* Styles imports */
 import 'semantic-ui-css/semantic.min.css';
+import { Form, Grid, Button, Breadcrumb } from 'semantic-ui-react';
+import './CreateAccount.css';
 
+import Sidebar from '../Sidebar/DeviceSidebar';
+import BreadCrumb from '../Dashboard/BreadCrumb';
+  
 
 /* App component */
 class CreateAccount extends Component {
@@ -20,6 +25,9 @@ class CreateAccount extends Component {
         lastname:'',
         email:'',
         password:'',
+        endengagement: '',
+        status: '',
+        enterprise: '',
         message:''
     }
   }}
@@ -32,7 +40,10 @@ class CreateAccount extends Component {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            endengagement: this.state.endengagement,
+            status: this.state.status,
+            enterprise: this.state.enterprise
         }
     }
 
@@ -59,32 +70,63 @@ class CreateAccount extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h3 >{this.state.message}</h3>
-            <form>
-                <div>
-                    <input onChange={(event) => {this.setState({firstname:event.target.value})}} type="text" className="validate" required/>
-                    <p>firstname</p>
-                </div>
-                <div>
-                    <input onChange={(event) => {this.setState({lastname:event.target.value})}} type="text" className="validate" required/>
-                   <p>lastname</p>
-                </div>
-            
-                <div>
-                    <input onChange={(event) => {this.setState({email:event.target.value})}} type="email" className="validate" required />
-                    <p>EMail</p>
-                </div>
-                <div>
-                    <input onChange={(event) => {this.setState({password:event.target.value})}} id="password-login" type="password" className="validate" required />
-                    <p>Password</p>
-                </div>
-                <button onClick={this._createAccount} type="submit">Submit
-                </button>
-                
-            </form>
 
+    return (
+        <div>
+            <BreadCrumb />
+
+            <div className="ui grid">
+                <div className="three wide column sidebar-container">
+
+                    <div className="sidebar">
+                        <Sidebar />
+                    </div>
+                </div>
+                <div className="twelve wide column sidebar-container">
+                <h3 className="center">Créer un compte utilisateur</h3>
+
+                <Grid centered columns={2}>
+                    <Grid.Column>
+                        <h3 >{this.state.message}</h3>
+                        <Form>
+
+                            <div className="field input-style">
+                            <input onChange={(event) => {this.setState({enterprise:event.target.value})}} type="text" placeholder="Entreprise" required/>
+                            </div><div className="field input-style">
+                                <p>Fin de contrat, le :</p>
+                            <input onChange={(event) => {this.setState({endengagement:event.target.value})}} type="date" placeholder="Fin d'engagement" required/>
+                            </div>
+                    
+                                <p>Contact principal:</p>
+                            <div className="field input-style">
+                            <input onChange={(event) => {this.setState({firstname:event.target.value})}} type="text" placeholder="Prénom" required/>
+                            </div><div className="field input-style">
+                            <input onChange={(event) => {this.setState({lastname:event.target.value})}} type="text" placeholder="Nom" required/>
+                            </div>
+                    
+                            <div className="field input-style">
+                                <input onChange={(event) => {this.setState({email:event.target.value})}} type="email" placeholder="eMail" required />
+                            </div><div className="field input-style">    
+                                <input onChange={(event) => {this.setState({password:event.target.value})}} id="password-login" type="password" placeholder="Mot de passe" required />
+                           </div>
+
+                                <p>Droits utilisateur:</p>
+
+                            <div className="field input-style">
+                                <select onChange={(event) => {this.setState({status:event.target.value})}} className="select-css" >
+                                    <option value="client">Accès client</option>
+                                    <option value="admin">Accès Admin</option>
+                                </select>
+                            </div>
+
+                            <Button onClick={this._createAccount} type="submit" className="bloc-center">VALIDER</Button>
+                    
+                        </Form>
+
+                    </Grid.Column>
+                </Grid>
+            </div>
+            </div>
       </div>
     );
   }

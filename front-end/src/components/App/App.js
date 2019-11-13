@@ -14,7 +14,7 @@ import 'semantic-ui-css/semantic.min.css';
 import Login from '../Login/login';
 import Header from '../Header/header';
 import Dashboard from '../Dashboard/Dashboard';
-import DeviceDashboard from '../Dashboard/DeviceDashboard';
+import DeviceDashboard from '../DeviceDashboard/DeviceDashboard';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import Admin from '../Admin/Admin';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -44,7 +44,7 @@ class App extends Component {
             <Route path="/CreateAccount">
               <CreateAccount />
             </Route>
-            <Route path="/Dashboard/DeviceDashboard">
+            <Route path="/DeviceDashboard/DeviceDashboard">
               <DeviceDashboard />
             </Route>
             <Route path="/Admin">
@@ -59,11 +59,16 @@ class App extends Component {
 
           <div>
 
-          <FormUsers/>
-            <p>_</p>
+            <p>
             <Link to="/Login/Login">Login</Link> _ 
-            <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> _ 
-            <Link to="/CreateAccount/CreateAccount">CreateAccount</Link>
+            <Link to="/DeviceDashboard/DeviceDashboard">DeviceDashboard</Link> _ 
+            <Link to="/CreateAccount/CreateAccount">CreateAccount</Link> _
+            <Link to="/Admin/Admin">AdminDashboard</Link>
+            </p>
+
+          <div className="login-footer">
+            <p className="slogan">Karroad - Flow Analysis with AI</p>
+          </div>
 
           </div>
         </div>

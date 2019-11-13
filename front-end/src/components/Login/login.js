@@ -73,9 +73,12 @@ _inputLogin = (e) => {
     )
   }
 
+ 
+
   _redirect = () => {
     if(this.state.redirect) {
-      //if(this.status === 'client') {
+
+      //if(status === 'client') {
         return <Redirect to='/Dashboard' />
       }
       //else if(this.status === 'admin') {
@@ -86,8 +89,10 @@ _inputLogin = (e) => {
       return;
     }
   }
+  //}
 
   render() {
+
     return (
 
         <div className="bg">

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import BarChart from '../Crossfilter/BarChart';
 import LineChart from '../LineChart/lineChart';
 import Sidebar from '../Sidebar/DeviceSidebar';
+import BreadCrumb from '../Dashboard/BreadCrumb';
 
 
 class DeviceDashboard extends Component {
@@ -18,6 +19,9 @@ class DeviceDashboard extends Component {
         return (
 
           <div>
+            <div>
+              <BreadCrumb />
+            </div>
             
             <div className="ui grid">
               <div className="three wide column sidebar-container">
