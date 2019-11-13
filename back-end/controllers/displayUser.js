@@ -2,7 +2,7 @@
  * myAccount controller
  */
 
-var Users = require ('../models/Users')
+var Users = require('../models/Users');
 
 var myAccount = {
 

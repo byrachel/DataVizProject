@@ -47,6 +47,7 @@ _inputLogin = (e) => {
         "X-Requested-With": "XmlHttpRequest",
         "Content-Type": "application/json"
       },
+      credentials: "include",
       body: JSON.stringify(data)
     }
 

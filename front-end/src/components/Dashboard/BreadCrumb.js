@@ -17,15 +17,15 @@ class Breadcrumb extends Component {
     super(props);
     this.state = {
         enterprise: '',
-        contactFirstname: '',
-        contactLastname: '',
-        status: ''
+        email: '',
       }
     }
-  
 
   componentDidMount() {
-    
+    this._fetchUser();
+  }
+  
+  _fetchUser = () => {
     var options = {
       method: 'GET',
       headers: {
@@ -39,12 +39,15 @@ class Breadcrumb extends Component {
     .then((res) => (res.json()))
     .then(
       (result) => {
+        console.log(result);
         this.setState({
+
 
             enterprise: result.enterprise,
             contactFirstname: result.contactFirstname,
             contactLastname: result.contactLastname,
             status: result.status,
+
 
         });
       },
@@ -52,25 +55,33 @@ class Breadcrumb extends Component {
         this.setState({message: "Please, create an account or login."});
       }
     )
-  }     
+  }
+
+  _displayUser = () => {
+    if(this.state.email) {
+      return(
+        <div className="BreadRow">
+          <div className="inline">
+              <div className="rectangle"></div>
+                <div className="BreadPolice left">
+                  <p className="hello">Dashboard
+                  <Icon name='right angle' />
+                  {this.state.enterprise}
+                  </p>
+                </div>
+            </div>
+          <div className="rectangle"></div>
+        </div>
+      )
+    }
+  }
 
   render() {
     return (
 
-          <div className="BreadRow">
-            <div className="inline">
-                <div className="rectangle"></div>
-                <div className="BreadPolice left">
-                    <p className="company">{this.state.enterprise}
-                    <Icon name='right angle' />
-                    </p>
-                </div>
-            </div>
-            <div className="inline">
-                <p className="hello">Bonjour {this.state.contactFirstname} {this.state.contactLastname} </p>
-                <div className="rectangle"></div>
-            </div>
-          </div>
+      <div>
+        {this._displayUser()}
+      </div>
 
     );
   }
