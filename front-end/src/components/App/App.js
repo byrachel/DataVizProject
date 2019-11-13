@@ -4,6 +4,7 @@
 
 /* Module imports */
 import React, { Component } from 'react';
+import FormUsers from '../Form/FormUsers';
 
 /* Styles imports */
 import './App.css';
@@ -57,17 +58,17 @@ class App extends Component {
           </Switch>
 
           <div>
-            <p>
-              <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> - 
-              <Link to="/CreateAccount/CreateAccount">CreateAccount</Link>
-            </p>
-          </div>
 
-          <div className="login-footer">
-            <p className="slogan">Karroad - Flow Analysis with AI</p>
+          <FormUsers/>
+            <p>_</p>
+            <Link to="/Login/Login">Login</Link> _ 
+            <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> _ 
+            <Link to="/CreateAccount/CreateAccount">CreateAccount</Link>
+
           </div>
         </div>
       </Router>
+
 
 
     );
