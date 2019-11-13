@@ -42,8 +42,8 @@ class Breadcrumb extends Component {
         this.setState({
 
             enterprise: result.enterprise,
-            contactFirstname: result.firstname,
-            contactLastname: result.lastname,
+            contactFirstname: result.contactFirstname,
+            contactLastname: result.contactLastname,
             status: result.status,
 
         });
