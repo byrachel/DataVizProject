@@ -15,6 +15,7 @@ import Header from '../Header/header';
 import Dashboard from '../Dashboard/Dashboard';
 import DeviceDashboard from '../Dashboard/DeviceDashboard';
 import CreateAccount from '../CreateAccount/CreateAccount';
+import Admin from '../Admin/Admin';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -35,29 +36,35 @@ class App extends Component {
         <div>
           <Header />
 
-            <Dashboard />
-
           <Switch>
-            <Route path="/Dashboard/Dashboard">
+            <Route path="/Dashboard">
               <Dashboard />
             </Route>
-            <Route path="/CreateAccount/CreateAccount">
+            <Route path="/CreateAccount">
               <CreateAccount />
-            </Route>
-            <Route path="/Login/Login">
-              <Login />
             </Route>
             <Route path="/Dashboard/DeviceDashboard">
               <DeviceDashboard />
             </Route>
+            <Route path="/Admin">
+              <Admin />
+            </Route>
+            <Route path="/">
+              <Login />
+            </Route>
+
 
           </Switch>
 
           <div>
-            <p>_</p>
-            <Link to="/Login/Login">Login</Link> _ 
-            <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> _ 
-            <Link to="/CreateAccount/CreateAccount">CreateAccount</Link>
+            <p>
+              <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> - 
+              <Link to="/CreateAccount/CreateAccount">CreateAccount</Link>
+            </p>
+          </div>
+
+          <div className="login-footer">
+            <p className="slogan">Karroad - Flow Analysis with AI</p>
           </div>
         </div>
       </Router>

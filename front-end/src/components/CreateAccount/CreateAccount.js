@@ -80,7 +80,7 @@ class CreateAccount extends Component {
                     <input onChange={(event) => {this.setState({password:event.target.value})}} id="password-login" type="password" className="validate" required />
                     <p>Password</p>
                 </div>
-                <button onClick={this._createAccount} type="submit" name="action">Submit
+                <button onClick={this._createAccount} type="submit">Submit
                 </button>
                 
             </form>

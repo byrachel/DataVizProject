@@ -4,6 +4,11 @@ import React, { Component } from 'react';
 import './login.css';
 import { Button, Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
+/* Gestionnaire de pages - imports */
+import {
+  BrowserRouter as Router,
+  Redirect
+} from "react-router-dom";
 
 /* App component */
 class Login extends Component {
@@ -11,11 +16,12 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+        redirect: false,
         user : {
             email:'',
             password:'',
             message:'',
+            status: ''
         }
     }
   }
@@ -55,7 +61,11 @@ _inputLogin = (e) => {
     .then((res) => (res.json()))
     .then(
       (result) => {
-        this.setState({message: result.message});
+        this.setState({
+          message: result.message,
+          status: result.status,
+          redirect: true
+        });
       },
       (error) => {
         this.setState({message: "Please try again or create a new account."});
@@ -63,20 +73,36 @@ _inputLogin = (e) => {
     )
   }
 
+  _redirect = () => {
+    if(this.state.redirect) {
+      //if(this.status === 'client') {
+        return <Redirect to='/Dashboard' />
+      }
+      //else if(this.status === 'admin') {
+        //return <Redirect to='/Dashboard' />
+      //}
+    //} 
+    else {
+      return;
+    }
+  }
+
   render() {
     return (
 
         <div className="bg">
+           {this._redirect()} 
           <Form className="login-space">
             <div className="login-opacity">
               <h3 className="white">{this.state.message}</h3>
-              <h2 className="login-title">Accédez à votre dashboard privé :</h2>
+              <p className="login-title">Accédez à votre dashboard privé :</p>
               <Form.Field>
               <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
               </Form.Field>
               <Form.Field>
               <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
               </Form.Field>
+              
               <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
             </div>
           </Form>
