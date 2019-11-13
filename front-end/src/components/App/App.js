@@ -4,6 +4,7 @@
 
 /* Module imports */
 import React, { Component } from 'react';
+import FormUsers from '../Form/FormUsers';
 
 /* Styles imports */
 import './App.css';
@@ -54,6 +55,7 @@ class App extends Component {
           </Switch>
 
           <div>
+          <FormUsers/>
             <p>_</p>
             <Link to="/Login/Login">Login</Link> _ 
             <Link to="/Dashboard/DeviceDashboard">DeviceDashboard</Link> _ 
@@ -61,6 +63,7 @@ class App extends Component {
           </div>
         </div>
       </Router>
+
 
 
     );
