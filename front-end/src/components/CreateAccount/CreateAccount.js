@@ -110,12 +110,12 @@ class CreateAccount extends Component {
                                 <input onChange={(event) => {this.setState({password:event.target.value})}} id="password-login" type="password" placeholder="Mot de passe" required />
                            </div>
 
-                                <p>Droits utilisateur:</p>
 
                             <div className="field input-style">
                                 <select onChange={(event) => {this.setState({status:event.target.value})}} className="select-css" >
+                                    <option value="client">Choisir le type d'accès</option>
                                     <option value="client">Accès client</option>
-                                    <option value="admin">Accès Admin</option>
+                                    <option value="admin"> Accès Admin</option>
                                 </select>
                             </div>
 
