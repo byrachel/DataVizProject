@@ -12,7 +12,7 @@ var myAccount = {
 
         if(req.user) {
 
-            var checkUsers = new Users({
+            res.json({
                 enterprise: req.user.enterprise,
                 contactFirstname: req.user.firstname,
                 contactLastname: req.user.lastname,
@@ -23,7 +23,7 @@ var myAccount = {
             });
         }
         else {
-            checkUsers.status(401).end();
+            res.status(401).end();
             
         }
     }

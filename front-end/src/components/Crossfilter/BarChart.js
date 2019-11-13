@@ -152,9 +152,9 @@ d3.csv(dataCsv).then((data) => {
                 <div>
 
                     <svg id="barchart">
-                        <div id="tooltip"></div>
+                        
                     </svg>
-
+                    <div id="tooltip"></div>
                 
                 </div>
 

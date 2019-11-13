@@ -58,7 +58,7 @@ class Blocs extends Component {
           )
         });
         return (
-            <div><select>{peripheriques}</select></div>
+            <div><select className="dropdown">{peripheriques}</select></div>
           );
     }
 
