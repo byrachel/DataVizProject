@@ -24,20 +24,15 @@ class DeviceDashboard extends Component {
             </div>
             
             <div className="ui grid">
-              <div className="three wide column sidebar-container">
-                <div className="sidebar">
-                  <Sidebar />
-                </div>
-              </div>
+            </div>
               <div className="twelve wide column blocs-container">
                 <BarChart />
               </div>
               <div className="twelve wide column blocs-container">
+                <br />
                 <LineChart />
               </div>
             </div>
-
-          </div>
 
 
         );
