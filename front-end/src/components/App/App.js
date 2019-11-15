@@ -16,7 +16,6 @@ import Dashboard from '../Dashboard/Dashboard';
 import DeviceDashboard from '../DeviceDashboard/DeviceDashboard';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import Admin from '../Admin/Admin';
-import Accueil from '../Accueil/Accueil';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -36,8 +35,8 @@ class App extends Component {
       <Router>
         <div>
         
-        <Accueil/>
-          {/* <Header />
+       
+           <Header />
 
           <Switch>
             <Route path="/Dashboard">
@@ -71,7 +70,7 @@ class App extends Component {
           <div className="login-footer">
             <p className="slogan">Karroad - Flow Analysis with AI</p>
           </div>
-          </div> */}
+          </div> 
         </div>
       </Router>
 
