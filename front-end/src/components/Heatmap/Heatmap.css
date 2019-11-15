@@ -1,0 +1,20 @@
+.container {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+    .menucontainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    }
+    .menuhours {
+       margin-top: 65px;
+    }
+    .menudays {
+       margin-top: 65px;
+    }
+    .menucategory {
+       margin-top: 65px;
+    }

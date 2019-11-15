@@ -75,9 +75,14 @@ class Accueil extends Component {
 
       </div>
 
-      <div classeName= "footer-content">
+      <div >
+        <img className="logo1" src="./assets/logo1.png" />
 
-          <h2> Analysis of traffic flow </h2>
+
+        <img className="logo2" src="./assets/logo2.png" />
+
+
+        <img src="./assets/logo3.png" />
 
 
       </div>
