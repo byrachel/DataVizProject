@@ -36,11 +36,11 @@ class App extends Component {
 
       <Router>
         <div>
-        {/* <Accueil/> */}
+         <Accueil/> 
 
         <Heatmap/>
        
-           {/*  <Header />
+             <Header />
            
 
           <Switch>
@@ -62,7 +62,7 @@ class App extends Component {
             </Route>
 
 
-          </Switch>  */}
+          </Switch>  
 
           <div>
 
