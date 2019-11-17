@@ -8,8 +8,6 @@ var myAccount = {
 
     displayMyAccount: (req, res) => {
 
-        console.log(req.user);
-
         if(req.user) {
 
             res.json({

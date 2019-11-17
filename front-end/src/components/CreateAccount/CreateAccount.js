@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 
 /* Styles imports */
 import 'semantic-ui-css/semantic.min.css';
-import { Form, Grid, Button, Breadcrumb } from 'semantic-ui-react';
+import { Form, Grid, Button } from 'semantic-ui-react';
 import './CreateAccount.css';
 
 import Sidebar from '../Sidebar/AdminSidebar';

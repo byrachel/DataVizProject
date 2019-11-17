@@ -63,7 +63,7 @@ _inputLogin = (e) => {
       (result) => {
         this.setState({
           message: result.message,
-          status: result.status,
+          status: result.user.status,
           redirect: true
         });
       },
@@ -73,23 +73,20 @@ _inputLogin = (e) => {
     )
   }
 
- 
-
   _redirect = () => {
     if(this.state.redirect) {
-
-      //if(status === 'client') {
+      if(this.state.status === 'client') {
         return <Redirect to='/Dashboard' />
       }
-      //else if(this.status === 'admin') {
-        //return <Redirect to='/Dashboard' />
-      //}
-    //} 
+      else if(this.state.status === 'admin') {
+        return <Redirect to='/Admin' />
+      }
+    } 
     else {
       return;
     }
   }
-  //}
+
 
   render() {
 

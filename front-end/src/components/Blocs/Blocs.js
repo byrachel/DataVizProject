@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
-import { Segment, Icon, Dropdown } from 'semantic-ui-react';
+import { Segment, Icon } from 'semantic-ui-react';
 import './Blocs.css';
 import Maping from '../Map/map';
-
+import {
+    BrowserRouter as Router,
+    Redirect
+  } from "react-router-dom";
 
 class Blocs extends Component {
     constructor(props) {
@@ -11,13 +14,13 @@ class Blocs extends Component {
         this.state = {
             videocam: [],
             endengagement: '',
-            selectedVideocam: ''
+            redirect: false,
+            idVideocam: ''
         }
     }
 
     componentDidMount() {
       
-
         var options = {
           method: 'GET',
           headers: {
@@ -31,12 +34,12 @@ class Blocs extends Component {
         .then((res) => (res.json()))
         .then(
           (result) => {
-            console.log(result);
             this.setState({
     
             endengagement: result.endengagement,
             nbVideocam: result.videocam.length,
-            videocam: result.videocam
+            videocam: result.videocam,
+            nameVideocam: result.videocam.name
     
             });
           },
@@ -44,6 +47,7 @@ class Blocs extends Component {
             this.setState({message: "Vous n'avez pas de périphérique actif."});
           }
         )
+
       }
 
       _displayVideocam = () => {
@@ -52,21 +56,47 @@ class Blocs extends Component {
         
         var peripheriques = videocam.map((device) => {
           return(
+
+        // Je récupère la valeur ID pour la page DeviceDashboard
+        // J'affiche le name dans le menu déroulant
             
-            <option value={device.name}>{device.name}</option>
+            <option value={device.id}>{device.name}</option>
             
           )
         });
+
+        // J'ajoute une entrée dans le menu déroulant -> dans le tableau
+        // Obligé car la donnée est prise en compte au : onChange
+
+        peripheriques.unshift((<option value={''}>Choisissez un périphérique</option>))
+
         return (
-            <div><select className="select-css">{peripheriques}</select></div>
+            <div><select className="select-css" onChange={(event) => {
+                this.setState({idVideocam:event.target.value,redirect:true})
+            }}>{peripheriques}</select></div>
           );
     }
+    
+    // Redirection vers la page du Dashboard avec l'ID en props
+    _redirect = () => {
+        if(this.state.redirect) {
+            return <Redirect to={{
+                pathname: '/DeviceDashboard',
+                state: { idVideocam: this.state.idVideocam }
+            }} />
+        } 
+        else {
+            return;
+        }
+    } 
 
     render() {
 
         return (
 
             <div>
+
+                {this._redirect()}
                 <div className="ui grid">
                     <div className="eight wide column">
                         <Segment raised className="blue">
@@ -99,7 +129,6 @@ class Blocs extends Component {
                         </Segment>
                     </div>
                     <div className="sixteen wide column">
-                        <h2>Séléctionnez un périphérique:</h2>
                         <p>{this._displayVideocam()}</p>
                        
                     

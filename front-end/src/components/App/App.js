@@ -4,7 +4,6 @@
 
 /* Module imports */
 import React, { Component } from 'react';
-import FormUsers from '../Form/FormUsers';
 
 /* Styles imports */
 import './App.css';
@@ -44,8 +43,7 @@ class App extends Component {
             <Route path="/CreateAccount">
               <CreateAccount />
             </Route>
-            <Route path="/DeviceDashboard/DeviceDashboard">
-              <DeviceDashboard />
+            <Route path="/DeviceDashboard" component={DeviceDashboard}>
             </Route>
             <Route path="/Admin">
               <Admin />

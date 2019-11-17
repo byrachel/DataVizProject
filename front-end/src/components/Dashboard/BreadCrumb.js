@@ -17,7 +17,7 @@ class Breadcrumb extends Component {
     super(props);
     this.state = {
         enterprise: '',
-        email: '',
+        email: ''
       }
     }
 
@@ -39,7 +39,6 @@ class Breadcrumb extends Component {
     .then((res) => (res.json()))
     .then(
       (result) => {
-        console.log(result);
         this.setState({
 
           enterprise: result.enterprise,
@@ -50,7 +49,7 @@ class Breadcrumb extends Component {
       (error) => {
         this.setState({message: "Please, create an account or login."});
       }
-    )
+    )        
   }
 
   _displayUser = () => {
