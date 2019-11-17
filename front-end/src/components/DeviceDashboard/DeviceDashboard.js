@@ -66,21 +66,16 @@ class DeviceDashboard extends Component {
             <div>
             </div>
             <div className="ui grid">
-              <div className="three wide column sidebar-container">
-                <div className="sidebar">
-                  <Sidebar />
-                </div>
-              </div>
+            </div>
               <div className="twelve wide column blocs-container">
                 <h2>{this.state.videocam}</h2>
                 <BarChart />
               </div>
               <div className="twelve wide column blocs-container">
+                <br />
                 <LineChart />
               </div>
             </div>
-
-          </div>
 
 
         );
