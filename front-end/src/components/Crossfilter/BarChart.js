@@ -28,7 +28,7 @@ class BarChart extends React.Component {
     }
 
     draw = () => {       
-        const margin = {top: 50, right: 0, bottom: 100, left: 40};
+        const margin = {top: 20, right: 20, bottom: 90, left: 60};
         const width = 800 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
@@ -45,7 +45,7 @@ class BarChart extends React.Component {
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("fill", "lightblue")
+            .attr("fill", "#6baed6")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         const div = d3.select("#tooltip")
@@ -149,14 +149,10 @@ d3.csv(dataCsv).then((data) => {
 
                     </div>
 
-                    <div>
+                    <h3 className="center">Nombre de véhicules / mois</h3>
 
-                        <svg id="barchart">
-                            
-                        </svg>
-                        <div id="tooltip"></div>
-                    
-                    </div>
+                    <div id="tooltip"><svg id="barchart"></svg></div>
+
                 </div>
                  
                 </Segment>

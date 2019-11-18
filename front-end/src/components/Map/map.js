@@ -85,7 +85,11 @@ render() {
         style={{ height: "400px", width: "100%" }}
         zoom={12}
         center={this.state.positionXY}>
-        <TileLayer url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+        />
 
         {this._displayMarkers()}
         

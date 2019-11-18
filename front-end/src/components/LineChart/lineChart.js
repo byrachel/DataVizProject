@@ -39,7 +39,7 @@ class LineChart extends React.Component {
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("fill", "lightblue")
+            .attr("fill", "red")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         const div = d3.select("#tool")
@@ -103,6 +103,7 @@ d3.csv(dataCsv).then((data) => {
 
             <div>
                 <Segment raised>
+                <h3 className="center">Nombre de véhicules / mois</h3>
                     <svg id="linechart">
                     <div id="tool"></div>
                     </svg>
