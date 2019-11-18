@@ -36,9 +36,6 @@ class App extends Component {
 
       <Router>
         <div>
-         <Accueil/> 
-
-        <Heatmap/>
        
              <Header />
            
