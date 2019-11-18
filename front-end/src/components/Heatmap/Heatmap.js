@@ -92,7 +92,7 @@ class Heatmap extends Component {
             margin = {
                 top: 90,
                 right: 50,
-                bottom: 140,
+                bottom: 100,
                 left: 100
             };
 
@@ -143,7 +143,7 @@ class Heatmap extends Component {
             .attr("x", width / 2)
             .attr("y", -70)
             .style("text-anchor", "middle")
-            .text("Nombre de véhicule au péage n°7");
+            .text("Nombre de véhicules au péage n°7");
         
             maingroup.append("text")
             .attr("class", "credit")
@@ -209,7 +209,7 @@ class Heatmap extends Component {
             .attr("x", width / 2)
             .attr("y", -40)
             .style("text-anchor", "middle")
-            .text("En février 2019 - " + d3.sum(data, function(d) {return d.count; }) + " " + this.state.categories);
+            .text("Février 2019 - Nombre de véhicules: " + d3.sum(data, function(d) {return d.count; }) + " - Type: " + this.state.categories);
         
         // Echelle des couleurs
 
@@ -225,7 +225,7 @@ class Heatmap extends Component {
 
             var mousemove = function(d) {
             tooltip
-                .html("Number of vehicles" + " " + d.count)
+                .html("Nombre de véhicules" + " " + d.count)
                 .style("left", (d3.mouse(this)[0] -1) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
             }
@@ -315,7 +315,7 @@ class Heatmap extends Component {
             .attr("x", 0)
             .attr("y", -10)
             .style("text-anchor", "middle")
-            .text("Number of vehicles");
+            .text("Légende : Nombre de véhicules");
 
             var xScale = d3.scaleLinear() // scale pour x-axis
             .range([-legendWidth / 2, legendWidth / 2])
@@ -343,30 +343,30 @@ class Heatmap extends Component {
                 
                     <div className='menuhours filters'>
                         <select className="ui dropdown" onChange={this._changeHours} >
-                            <option value="Day">Day</option>
-                            <option value="All">All</option>
+                            <option value="Day">Journée (8h / 20h)</option>
+                            <option value="All">24 heures</option>
                         </select>
                     </div>
 
                     <div className='menudays filters'>
                         <select className="ui dropdown" onChange={this._changeDays} >
-                            <option value="Working Days">Working Days</option>
-                            <option value="All">All</option>
+                            <option value="Working Days">Semaine uniquement</option>
+                            <option value="All">Tous les jours</option>
                         </select>
                     </div>
 
                     <div className='menucategory filters'>
                         <select className="ui dropdown" onChange={this._changeCategory} >
-                            <option value="All">All</option>
-                            <option value="Cars">Cars</option>
-                            <option value="Trucks">Trucks</option>
-                            <option value="Motorbikes">Motorbikes</option>
+                            <option value="All">Tous véhicules</option>
+                            <option value="Cars">Voitures</option>
+                            <option value="Trucks">Camions</option>
+                            <option value="Motorbikes">Motos</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <div>
+            <div className="heatmap">
                 <div id="tooltip"></div> 
                 <svg></svg>  
             </div>

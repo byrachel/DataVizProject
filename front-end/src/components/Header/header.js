@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-
-import { Breadcrumb } from 'semantic-ui-react';
+import Contact from '../Contact/Contact'
 
 /* Styles imports */
 import './header.css';
@@ -53,16 +52,16 @@ class Header extends Component {
   render() {
     return (
 
-      <div>
+<div>
         <div className = "header-container">
           <img src="../assets/logo.png" id="logo" alt="Karroad" />
-          <nav>
-            <Icon className="mail outline large" /> 
-            <Icon className="user outline large" /> 
+          <nav className="inline">
+            <Contact /> 
+            <Icon className="user outline large" />
             <button onClick={this._logout} className="menu-icon"><Icon className="log out large" /></button>
           </nav>
         </div>
-
+​
       </div>
 
   
