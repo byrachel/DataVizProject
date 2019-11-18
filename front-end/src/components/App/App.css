@@ -58,3 +58,18 @@ p {
     font-size: 18px;
 }
 
+.left {
+    text-align: left;
+}
+
+.peripherique-title {
+    text-transform: initial;
+    font-weight: 700;
+    color: black;
+}
+
+.hello {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+}

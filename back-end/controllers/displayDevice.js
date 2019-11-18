@@ -18,7 +18,9 @@ var catalog = {
 
                 res.json({
                     idVideocam: device.id,
-                    videocam: device.name
+                    videocam: device.name,
+                    lat: device.lat,
+                    long: device.long
                 });
             }
             else {

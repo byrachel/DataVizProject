@@ -6,12 +6,16 @@ import Sidebar from '../Sidebar/DeviceSidebar';
 import BreadCrumb from '../Dashboard/BreadCrumb';
 import Heatmap from '../Heatmap/Heatmap';
 
+import { Icon } from 'semantic-ui-react';
+
 class DeviceDashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
           idVideocam: '',
-          videocam: ''
+          videocam: '',
+          lat:'',
+          long:''
         }
     }
 
@@ -46,7 +50,9 @@ class DeviceDashboard extends Component {
     (result) => {
         this.setState({
         idVideocam: result.idVideocam,
-        videocam: result.videocam
+        videocam: result.videocam,
+        lat: result.lat,
+        long: result.long
         });
     },
     (error) => {
@@ -71,7 +77,8 @@ class DeviceDashboard extends Component {
                 </div>
               </div>
               <div className="twelve wide column blocs-container">
-                <h2>Périphérique - {this.state.videocam}</h2>
+                <h2 className="peripherique-title">Périphérique - {this.state.videocam}</h2>
+                <p className="left"><Icon name='map pin' /> Latitude: {this.state.lat} - Longitude: {this.state.long}</p>
                 <div>
                   <br />
                   <Heatmap />
