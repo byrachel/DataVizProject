@@ -92,22 +92,34 @@ _inputLogin = (e) => {
 
     return (
 
-        <div className="bg">
-           {this._redirect()} 
-          <Form className="login-space">
-            <div className="login-opacity">
-              <h3 className="white">{this.state.message}</h3>
-              <p className="login-title">Accédez à votre dashboard privé :</p>
-              <Form.Field>
-              <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
-              </Form.Field>
-              <Form.Field>
-              <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
-              </Form.Field>
-              
-              <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
-            </div>
-          </Form>
+      <div>
+        {this._redirect()}
+
+        <div className="ui grid">
+          <div className="seven wide column sidebar-container">
+
+            <Form className="login-space">
+              <div className="login-opacity">
+                <h3 className="white">{this.state.message}</h3>
+                <p className="login-title">Accédez à votre dashboard privé :</p>
+                <Form.Field>
+                <input placeholder='Email' onChange={this._inputEmail} className="login-input" />
+                </Form.Field>
+                <Form.Field>
+                <input placeholder='Mot de passe' onChange={this._inputPassword} type="password" className="login-input" />
+                </Form.Field>
+                
+                <Button type='Submit' onClick={this._inputLogin} className="submit-button" >Se connecter</Button>
+              </div>
+            </Form>
+          </div>
+
+          <div className="nine wide column">
+            <img src="/assets/teste.gif" ></img>
+          </div>
+        </div>
+
+
       </div>
 
       

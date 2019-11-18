@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import data from './Heatmap2.csv';
 import 'semantic-ui-css/semantic.min.css';
-
+import { Segment } from 'semantic-ui-react';
 import './Heatmap.css'; 
 
 class Heatmap extends Component {
@@ -334,35 +334,44 @@ class Heatmap extends Component {
     render() {
         return (
             
-        <div className='container'> 
-            <div id="tooltip"></div> 
-            <svg></svg>  
-            <div className='menucontainer' >
+        <div className='container'>
+            <Segment raised>
+            <div className='container-heatmap'>
+                <div className="inline">
 
-                <div className='menuhours'>
-                    <select className="ui dropdown" onChange={this._changeHours} >
-                        <option value="Day">Day</option>
-                        <option value="All">All</option>
-                    </select>
-                </div>
+                <h3>Filtres :</h3>
+                
+                    <div className='menuhours filters'>
+                        <select className="ui dropdown" onChange={this._changeHours} >
+                            <option value="Day">Day</option>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
 
-                <div className='menudays'>
-                    <select className="ui dropdown" onChange={this._changeDays} >
-                        <option value="Working Days">Working Days</option>
-                        <option value="All">All</option>
-                    </select>
-                </div>
+                    <div className='menudays filters'>
+                        <select className="ui dropdown" onChange={this._changeDays} >
+                            <option value="Working Days">Working Days</option>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
 
-                <div className='menucategory'>
-                    <select className="ui dropdown" onChange={this._changeCategory} >
-                        <option value="All">All</option>
-                        <option value="Cars">Cars</option>
-                        <option value="Trucks">Trucks</option>
-                        <option value="Motorbikes">Motorbikes</option>
-
-                    </select>
+                    <div className='menucategory filters'>
+                        <select className="ui dropdown" onChange={this._changeCategory} >
+                            <option value="All">All</option>
+                            <option value="Cars">Cars</option>
+                            <option value="Trucks">Trucks</option>
+                            <option value="Motorbikes">Motorbikes</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+
+            <div>
+                <div id="tooltip"></div> 
+                <svg></svg>  
+            </div>
+
+            </Segment>
         </div>
         )
     }

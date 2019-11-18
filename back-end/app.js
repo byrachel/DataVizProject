@@ -15,7 +15,6 @@ var cors = require('./middlewares/cors');
 /* Import routes */
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var mapRouter = require('./routes/map');
 var deviceRouter = require('./routes/device');
 
 /* Create app */
@@ -66,7 +65,6 @@ app.use(passport.session()); // calls the deserializeUser
 /* Routes */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/map', mapRouter);
 app.use('/device', deviceRouter);
 
 module.exports = app;

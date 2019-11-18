@@ -40,4 +40,9 @@ router.get('/user', function(req, res) {
     myAccount.displayMyAccount(req, res);
 });
 
+/* GET display markers */
+router.get('/map', function(req, res) {
+  myAccount.displayMyAccount(req, res);
+});
+
 module.exports = router;

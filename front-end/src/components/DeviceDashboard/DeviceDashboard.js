@@ -4,7 +4,7 @@ import BarChart from '../Crossfilter/BarChart';
 import LineChart from '../LineChart/lineChart';
 import Sidebar from '../Sidebar/DeviceSidebar';
 import BreadCrumb from '../Dashboard/BreadCrumb';
-
+import Heatmap from '../Heatmap/Heatmap';
 
 class DeviceDashboard extends Component {
     constructor(props) {
@@ -63,20 +63,30 @@ class DeviceDashboard extends Component {
             <div>
               <BreadCrumb />
             </div>
-            <div>
-            </div>
-            <div className="ui grid">
-            </div>
-              <div className="twelve wide column blocs-container">
-                <h2>{this.state.videocam}</h2>
-                <BarChart />
-              </div>
-              <div className="twelve wide column blocs-container">
-                <br />
-                <LineChart />
-              </div>
-            </div>
 
+            <div className="ui grid">
+              <div className="three wide column sidebar-container">
+                <div className="sidebar">
+                  <Sidebar />
+                </div>
+              </div>
+              <div className="twelve wide column blocs-container">
+                <h2>Périphérique - {this.state.videocam}</h2>
+                <div>
+                  <br />
+                  <Heatmap />
+                </div>
+                <div>
+                  <br />
+                  <BarChart />
+                </div>
+                <div>
+                  <br />
+                  <LineChart />
+                </div>
+              </div>
+            </div>
+          </div>
 
         );
     }

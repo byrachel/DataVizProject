@@ -16,8 +16,6 @@ import Dashboard from '../Dashboard/Dashboard';
 import DeviceDashboard from '../DeviceDashboard/DeviceDashboard';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import Admin from '../Admin/Admin';
-import Accueil from '../Accueil/Accueil';
-import Heatmap from '../Heatmap/Heatmap';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -37,8 +35,7 @@ class App extends Component {
       <Router>
         <div>
        
-             <Header />
-           
+          <Header />
 
           <Switch>
              
@@ -57,22 +54,12 @@ class App extends Component {
               <Login />
             </Route>
 
-
-          </Switch>  
-
-          <div>
-
-            <p>
-            <Link to="/Login/Login">Login</Link> _ 
-            <Link to="/DeviceDashboard/DeviceDashboard">DeviceDashboard</Link> _ 
-            <Link to="/CreateAccount/CreateAccount">CreateAccount</Link> _
-            <Link to="/Admin/Admin">AdminDashboard</Link>
-            </p>
+        </Switch>  
 
           <div className="login-footer">
             <p className="slogan">Karroad - Flow Analysis with AI</p>
           </div>
-          </div> 
+
         </div>
       </Router>
 

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
-
-
 import './map.css';
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -22,50 +20,84 @@ class Maping extends Component {
     super(props);
     this.state = {
       positionXY: [43.7031, 7.2661],
-      markers: [[43.6205645, 7.0749353], [43.7031, 7.2661], [43.3234546, 4.5654],
-               [43.6205685, 7.07497453], [43.6205645, 7.0749353], [44.6205614, 7.0949353], [43.7000839, 7.2867589], 
-               [43.7032620, 7.2724500], [43.6983079, 7.2850910], [43.7055243, 7.2648916], [43.7016695, 7.2837466] ]
+      markers: []
 
     }
   }
 
 
-  /* 
-      addMarker = (e) => {
-      const {markers} = this.state
-      markers.push(e.latlng)
-      this.setState({markers})
-   }
- */
+componentDidMount() {
+      
 
-  render() {
-    return (
-      <div className='map'>
-        <Map
-          style={{ height: "400px", width: "100%" }}
-          zoom={12}
-          center={this.state.positionXY}>
-          <TileLayer url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-          {this.state.markers.map((position, idx) =>
-            <Marker key={`marker-${idx}`} position={position}>
-              <Popup position={position}>
-                <span> {position} <br /> autres infos ??? </span>
-              </Popup>
-            </Marker>
-          )}
-          
-        </Map>
-
-
-
-
-
-      </div>
-    );
+  var options = {
+    method: 'GET',
+    headers: {
+      "X-Requested-With": "XmlHttpRequest",
+      "Content-Type": "application/json"
+    },
+    credentials: "include"
   }
+  
+  fetch('http://localhost:8080/users/map', options)
+  .then((res) => (res.json()))
+  .then(
+    (result) => {
+      console.log(result.videocam);
+      this.setState({
+        markers: result.videocam
+      });
+    },
+    (error) => {
+      this.setState({message: "Vous n'avez aucun marker a afficher."});
+    }
+  )
+}
+
+_displayMarkers = () => {
+
+  var markersVideocam = this.state.markers;
+  
+  return markersVideocam.map((device, index) => {
+    return(
+      <Marker key={`marker-${index}`} position={[device.lat, device.long]}>
+        <Popup position={[device.lat, device.long]}>
+          <span> <strong>{device.name} </strong><br />{[device.lat, device.long]}</span>
+        </Popup>
+      </Marker>
+    )
+  });
+}
+
+
+
+/*  ?? ajout d'un marquer au clic
+    addMarker = (e) => {
+    const {markers} = this.state
+    markers.push(e.latlng)
+    this.setState({markers})
+ }
+*/
+
+render() {
+  return (
+    <div className='map'>
+      <Map
+        style={{ height: "400px", width: "100%" }}
+        zoom={12}
+        center={this.state.positionXY}>
+        <TileLayer url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        {this._displayMarkers()}
+        
+      </Map>
+
+
+
+
+
+    </div>
+  );
+}
 }
 
 export default Maping;
-
-

@@ -106,7 +106,7 @@ class Blocs extends Component {
                                         <Icon name='video' size='huge' />
                                     </div>
                                     <div className="twelve wide column">
-                                        <p className="nbActif"> {this.state.nbVideocam}</p>
+                                        <p className="nbActif">{this.state.nbVideocam}</p>
                                         <p className="blocText">Périphériques actifs</p>
                                     </div>
                                 </div>
@@ -121,8 +121,8 @@ class Blocs extends Component {
                                         <Icon name='attention' size='huge' />
                                     </div>
                                     <div className="twelve wide column">
-                                        <p className="dateContrat"> {this.state.endengagement} </p>
-                                        <p className="blocText"> date de fin de contrat.</p>
+                                        <p className="dateContrat">{this.state.endengagement} </p>
+                                        <p className="blocText">date de fin de contrat.</p>
                                     </div>
                                 </div>
                             </div>

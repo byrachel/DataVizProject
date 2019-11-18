@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 /* Styles imports */
 import './Sidebar.css';
 import { Icon, Menu } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 /* App component */
 class AdminSidebar extends Component {
@@ -18,7 +19,6 @@ class AdminSidebar extends Component {
 
   render() {
 
-
     const { activeItem } = this.state;
 
     return (
@@ -28,21 +28,12 @@ class AdminSidebar extends Component {
 
 <div className='MenuRow'>
     <Icon name='dashboard' className="large" />
-    <Menu.Item
-        name='Dashboard'
-        active={activeItem === 'Dashboard'}
-        onClick={this.handleItemClick}
-        className="sidebar-menu"
-    />
+    <Link to="/Admin" className="link">Dashboard</Link>
 </div>
 
 <div className='MenuRow'>
     <Icon name='user plus' className="large" />
-    <Menu.Item
-        name='Créer un compte'
-        onClick={this.handleItemClick}
-        className="sidebar-menu"
-    />
+    <Link to="/CreateAccount" className="link">Créer un compte</Link>
 </div>
 
 <div className='MenuRow'>
@@ -54,17 +45,10 @@ class AdminSidebar extends Component {
     />
 </div>
 
-<div className='MenuRow'>
-    <Icon name='users' className="large" />
-    <Menu.Item
-        name='Engagement clients'
-        onClick={this.handleItemClick}
-        className="sidebar-menu"
-    />
-</div>
-
 
 </Menu>
+
+
     </div>
    
     );

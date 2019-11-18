@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import dataCsv from './data.csv';
 import "./BarChart.css";
 
-import { Grid, Segment, Icon, Menu, Dropdown, Select } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 class BarChart extends React.Component {
     constructor() {
@@ -135,29 +135,29 @@ d3.csv(dataCsv).then((data) => {
 
 
             <div>
-                 <Segment raised>
+                <Segment raised>
+                <div className="barchart-container">
+                    <div className="inline">
 
-                 <div className="inline">
+                        <h3>Filtres :</h3>
 
-                    <h3>Filtres :</h3>
+                        <select className="ui dropdown" onChange={this._changeState}>
+                            <option value="all">Tous les véhicules</option>
+                            <option value="cars">Voitures</option>
+                            <option value="trucks">Camions</option>
+                        </select>
 
-                    <select className="ui dropdown" onChange={this._changeState}>
-                        <option value="all">Tous les véhicules</option>
-                        <option value="cars">Voitures</option>
-                        <option value="trucks">Camions</option>
-                    </select>
+                    </div>
 
+                    <div>
+
+                        <svg id="barchart">
+                            
+                        </svg>
+                        <div id="tooltip"></div>
+                    
+                    </div>
                 </div>
-
-                <div>
-
-                    <svg id="barchart">
-                        
-                    </svg>
-                    <div id="tooltip"></div>
-                
-                </div>
-
                  
                 </Segment>
 
