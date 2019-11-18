@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import './Sidebar.css';
 import { Icon, Menu } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 /* App component */
 class DeviceSidebar extends Component {
@@ -28,12 +29,7 @@ class DeviceSidebar extends Component {
 
 <div className='MenuRow'>
     <Icon name='dashboard' className="large" />
-    <Menu.Item
-        name='Dashboard'
-        active={activeItem === 'Dashboard'}
-        onClick={this.handleItemClick}
-        className="sidebar-menu"
-    />
+    <Link to="/Dashboard" className="link">Dashboard</Link>
 </div>
 
 <div className='MenuRow'>
